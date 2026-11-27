@@ -1,0 +1,31 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.codex/
+profiles.yml
+
+# Python and dbt
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+target/
+dbt_packages/
+logs/
+
+# Local data and generated artifacts
+data/raw/
+data/local/
+*.duckdb
+*.duckdb.wal
+
+# Power BI local settings, cache, and exports
+.pbi/
+*.pbix
+
+# Editor and OS files
+.vscode/
+Thumbs.db
+.DS_Store
