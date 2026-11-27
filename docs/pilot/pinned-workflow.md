@@ -44,10 +44,10 @@ Both attempt endpoints reported the same run head SHA. The pinned workflow file 
 
 The pilot replay checks the run, attempt, and job data path and reproduces the recovery result offline. It is a separate case from running the pytest suite on GitHub-hosted runners. It supports data and KPI verification. It carries no estimate of the original workflow's runtime or the reason for the first failure.
 
-The replay depends on the fixture files and tests prepared in issue #4. Integrate those files before this workflow. Use the following command in both environments:
+The replay uses the fixtures and tests prepared in issue #4. Run the following command from a checkout that contains those files:
 
 ```console
 python -m unittest discover -s tests -p test_pilot_fixtures.py -v
 ```
 
-The GitHub Actions workflow uses an Ubuntu runner and Python 3.12. The fixture tests also run locally without GitHub credentials. After approval and publication, dispatch `Pilot replay` at the reviewed reference. Record the resolved SHA, runner image version, and resulting run link in issue #3. Repeat against the same SHA if verification requires a rerun. Use the pinned upstream case only as documented source evidence.
+The fixture tests run locally with Python 3.12 and require no GitHub credentials. Issue #4 tracks the GitHub Actions replay alongside its inputs. The upstream pytest run is the source for the fixture evidence.
